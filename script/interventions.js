@@ -1,36 +1,17 @@
 var modal = document.getElementById("myModal");
-
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// Function to handle click on button
-function handleClick(event) {
-  var content = event.target.dataset.content;
-  document.getElementById("modal-content").textContent = content;
+console.log(modal);
+function openModal(button) {
+  var text = button.parentNode.previousElementSibling.innerText;
   modal.style.display = "block";
+  document.getElementById("modalText").innerText = text;
 }
 
-// When the user clicks on a cell in the fourth column, replace its content with a button
-var fourthColumnCells = document.querySelectorAll("tr > td:last-child");
-fourthColumnCells.forEach(function (cell) {
-  cell.innerHTML =
-    '<button class="modal-button" data-content="' +
-    cell.textContent +
-    '">Click</button>';
-});
-
-// Add event listeners to the buttons
-var buttons = document.querySelectorAll(".modal-button");
-buttons.forEach(function (button) {
-  button.addEventListener("click", handleClick);
-});
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+function closeModal() {
   modal.style.display = "none";
-};
+}
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";

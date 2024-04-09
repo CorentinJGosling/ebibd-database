@@ -552,14 +552,11 @@ body {
 #data-table th {
   padding: 8px; /* Add padding inside each cell */
   border: 1px solid #ddd; /* Add borders for better visibility */
-}
-#data-table th:nth-child(-n+3),
-#data-table td:nth-child(-n+3) {
   text-align: center;
 }
 #data-table th:nth-child(4),
 #data-table td:nth-child(4) {
-  text-align: left;
+  display: none;
 }
 
 #chartdiv {
@@ -568,9 +565,9 @@ body {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
