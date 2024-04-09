@@ -37,8 +37,9 @@ dat$text = with(dat, paste0(
 dat$'More information' = paste0('<button onclick="openModal',
                    # "('", dat$Interventions, "')",
                    "(this)",
-                   '">Show Modal</button>')
+                   '">Learn more</button>')
 html_tbl = dat[, c("Group", "Interventions", "Descriptions/mechanisms of action", "text", "More information")] %>%
+            distinct() %>%
   tableHTML(class='table-fill', escape = FALSE,
             rownames = FALSE)
 
