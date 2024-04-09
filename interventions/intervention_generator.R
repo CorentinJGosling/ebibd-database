@@ -21,7 +21,7 @@ dat = dat %>%
   group_by(Interventions) %>%
   mutate(RECO_TOT = paste0("<br><u>This intervention is indicated in</u> <ul>", paste("<li>", ind_reco, collapse = " </li>"), "</ul>"))
 
-dat$'Descriptions/mechanisms of action' = paste0(dat$Interventions, " ", dat$'Descriptions/mechanisms of action')
+dat$'Descriptions/mechanisms of action' = paste0(dat$Interventions, " is a ", dat$'Descriptions/mechanisms of action')
 dat$RECO_TOT = gsub("\\\r", " ", dat$RECO_TOT)
 dat$RECO_TOT = gsub("\\\n", " ", dat$RECO_TOT)
 nrow = 1:nrow(dat)
