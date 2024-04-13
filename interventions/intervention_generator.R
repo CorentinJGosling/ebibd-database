@@ -19,7 +19,7 @@ dat$ind_reco = paste0(dat$Indications,
 
 dat = dat %>%
   group_by(Interventions) %>%
-  mutate(RECO_TOT = paste0("<u>This intervention is indicated in</u> <ul class='list_inter'>", paste("<li>", ind_reco, collapse = " </li>"), "</ul>"))
+  mutate(RECO_TOT = paste0("<u>", Interventions, " is indicated in</u> <ul class='list_inter'>", paste("<li>", ind_reco, collapse = " </li>"), "</ul>"))
 
 dat$'Descriptions/mechanisms of action' = paste0(dat$Interventions, " is a ", dat$'Descriptions/mechanisms of action')
 dat$RECO_TOT = gsub("\\\r", " ", dat$RECO_TOT)
