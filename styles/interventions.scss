@@ -311,228 +311,12 @@ section {
   // background-color: #add6ed;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   padding: 0 1rem;
   margin-bottom: 3rem;
 }
-.card-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 2rem;
-  justify-content: center;
-  transition: all 0.3s ease;
-
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-  }
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-}
-.category-buttons {
-  // border: 1px solid red;
-  display: grid;
-  width: 70vw;
-  // flex-wrap: wrap;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  margin-bottom: 1rem;
-  gap: 1rem;
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-
-  button {
-    padding: 1rem 2rem;
-    border: 1px solid #000;
-    border-radius: 2rem;
-    background-color: #eee;
-    color: #333;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    &:hover {
-      background-color: #333;
-      color: #fff;
-    }
-  }
-}
-.category-buttons .active {
-  background-color: #333;
-  color: #fff;
-}
-
-.card-container .card {
-  display: none;
-}
-.card {
-  background-color: #fff;
-  // border: 1px solid #000;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.66);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: box-shadow 0.2s linear;
-
-  &:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
-  }
-
-  .card-image {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-
-    img {
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      width: 100%;
-    }
-  }
-
-  .card-content {
-    padding: 0.5rem 0.5rem;
-    font-size: 1rem;
-    .card-category {
-      margin-bottom: 0.5rem;
-      text-align: left;
-      font-style: italic;
-    }
-    .card-title {
-      font-weight: 600;
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-text {
-      margin-bottom: 1rem;
-    }
-
-    .card-link {
-      background-color: #2196f3;
-      border-radius: 2rem;
-      color: #fff;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.2s ease-in-out;
-
-      &:hover {
-        background-color: #146db2;
-      }
-    }
-  }
-}
-// SECTION ===================================================================================
-
-/* Show cards with a nice animation */
-.card.show {
-  transition-delay: 0.2s;
-}
-.card-container .card.show {
-  display: block;
-  transform: scale(1);
-  animation: fade-in 0.3s linear;
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 //  MODALS ===================================================================
-.modal {
-  display: none;
-  position: fixed; /* Change to fixed for full-screen modal */
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  overflow: auto;
-}
 
-.modalContent {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-  max-width: 1050px;
-  position: absolute; /* Adjust positioning for centered modal content */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the modal content */
-}
-
-.modalClose {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.modalClose:hover,
-.modalClose:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modalOpenBtn {
-  cursor: pointer;
-  background-color: #2196f3;
-  border-radius: 2rem;
-  border: 1px solid #fff;
-  color: #fff;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #146db2;
-  }
-}
-
-.modalHead {
-  font-size: 1.7rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-.modalBody {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-  line-height: 160%;
-}
-
-.modalRef {
-  padding-left: 1rem;
-  font-size: 0.9rem;
-  font-style: italic;
-}
-.modalRef li {
-  text-indent: -0.5rem;
-  margin-bottom: 0.5rem;
-}
 // #container {
 //   min-width: 320px;
 //   max-width: 800px;
@@ -543,30 +327,41 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
-#data-table {
-  margin-top: 1rem;
-  border-collapse: collapse;
-  width: 100%;
-
-  ul {
-    padding-left: 0; /* Enlève le retrait à gauche */
-    list-style-position: inside; // list-style: none;
-  }
-  td,
-  th {
-    padding: 8px; /* Add padding inside each cell */
-    border: 1px solid #ddd; /* Add borders for better visibility */
-    text-align: center;
-  }
-  th:nth-child(4),
-  td:nth-child(4) {
-    display: none;
-  }
-}
 #chartdiv {
   width: 100%;
   height: 500px;
+}
+
+#intervention_material {
+  text-align: left;
+  #data-table {
+    margin-top: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 50vw;
+
+    ul {
+      list-style-type: disc; /* or other list-style-type value as desired */
+      margin-left: 20px; /* Adjust margin as needed */
+    }
+
+    ul li {
+      margin-bottom: 5px; /* Adjust margin as needed */
+    }
+
+    td,
+    th {
+      padding: 8px; /* Add padding inside each cell */
+      border: 1px solid #ddd; /* Add borders for better visibility */
+      text-align: center;
+    }
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(4),
+    td:nth-child(4) {
+      display: none;
+    }
+  }
 }
 .modal {
   display: none;
@@ -575,17 +370,19 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  min-height: 100vh !important;
+  height: 100%;
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  min-height: 70vh !important;
 }
 
 .close {
@@ -600,4 +397,21 @@ body {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+ul {
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+ul li {
+  margin-top: 5px; /* Adjust margin as needed */
+}
+
+.desc_tab {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.header_tab {
+  font-weight: bold;
+  margin-top: 1rem;
 }

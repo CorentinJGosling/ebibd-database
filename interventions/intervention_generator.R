@@ -19,21 +19,33 @@ dat$ind_reco = paste0(dat$Indications,
 
 dat = dat %>%
   group_by(Interventions) %>%
-  mutate(RECO_TOT = paste0("<br><u>This intervention is indicated in</u> <ul>", paste("<li>", ind_reco, collapse = " </li>"), "</ul>"))
+  mutate(RECO_TOT = paste0("<u>This intervention is indicated in</u> <ul class='list_inter'>", paste("<li>", ind_reco, collapse = " </li>"), "</ul>"))
 
 dat$'Descriptions/mechanisms of action' = paste0(dat$Interventions, " is a ", dat$'Descriptions/mechanisms of action')
 dat$RECO_TOT = gsub("\\\r", " ", dat$RECO_TOT)
 dat$RECO_TOT = gsub("\\\n", " ", dat$RECO_TOT)
 nrow = 1:nrow(dat)
 dat$text = with(dat, paste0(
+  paste0("<div class='desc_tab'>More information about ", Interventions, "</div>"),
+
+  "<div class='header_tab'>Type of intervention.</div>",
   Interventions, " is a <u>", Group, "</u> intervention. <br>",
+
+  ifelse(Group == "Pharmacological",
+         "<div class='header_tab'>Mecanism of action.</div>",
+         "<div class='header_tab'>Description of the intervention.</div>"),
   ifelse(Group == "Pharmacological", " Its mechanism of action is ",
          paste0(Interventions, " ")),
-  dat$'Descriptions/mechanisms of action',
-  ". ",
-  ifelse(Indications == "", paste0("The use of ", Interventions, " in BD is off-label in most countries."),
+  dat$'Descriptions/mechanisms of action', ". ",
+
+  "<div class='header_tab'>Indication for this intervention.</div>",
+  ifelse(Indications == "",
+         paste0("The use of ", Interventions, " in BD is off-label in most countries."),
          RECO_TOT)
 ))
+
+
+
 dat$'More information' = paste0('<button onclick="openModal',
                    # "('", dat$Interventions, "')",
                    "(this)",

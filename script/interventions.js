@@ -3,9 +3,9 @@ var span = document.getElementsByClassName("close")[0];
 
 console.log(modal);
 function openModal(button) {
-  var text = button.parentNode.previousElementSibling.innerText;
+  var htmlContent = button.parentNode.previousElementSibling.innerHTML;
   modal.style.display = "block";
-  document.getElementById("modalText").innerText = text;
+  document.getElementById("modalText").innerHTML = htmlContent;
 }
 
 function closeModal() {
