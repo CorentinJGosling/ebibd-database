@@ -307,14 +307,6 @@ section {
   }
 }
 
-#intervention_material {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 1rem;
-  margin-bottom: 3rem;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -325,7 +317,20 @@ body {
 }
 
 #intervention_material {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
   text-align: left;
+}
+#intervention_material .filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 2rem;
+  font-weight: 600;
 }
 #intervention_material #data-table {
   margin-top: 1rem;
@@ -346,10 +351,10 @@ body {
   border: 1px solid #ddd; /* Add borders for better visibility */
   text-align: center;
 }
-#intervention_material #data-table th:nth-child(3),
-#intervention_material #data-table td:nth-child(3),
 #intervention_material #data-table th:nth-child(4),
-#intervention_material #data-table td:nth-child(4) {
+#intervention_material #data-table td:nth-child(4),
+#intervention_material #data-table th:nth-child(5),
+#intervention_material #data-table td:nth-child(5) {
   display: none;
 }
 

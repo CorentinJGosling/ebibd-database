@@ -58,18 +58,20 @@ const content = document.querySelectorAll(".cont");
 
 function filterTable() {
   var nameFilter = $("#filter1").val() || [];
+  var typeFilter = $("#filter2").val() || []; // Get the selected type filter
   $("#data-table tbody tr").each(function () {
     var name = $(this).find("td:eq(0)").text();
-    if (nameFilter.length === 0 || nameFilter.indexOf(name) !== -1) {
+    var type = $(this).find("td:eq(2)").text(); // Get the type from the 3rd column
+    if (
+      (nameFilter.length === 0 || nameFilter.indexOf(name) !== -1) &&
+      (typeFilter.length === 0 || typeFilter.indexOf(type) !== -1) // Check if type matches the filter
+    ) {
       $(this).show();
     } else {
       $(this).hide();
     }
   });
 }
-$("#filter1").on("change", function () {
-  filterTable();
-});
 
 $(document).ready(function () {
   $(".js-example-basic-multiple").select2({});
@@ -78,20 +80,33 @@ $(document).ready(function () {
     function () {
       // Populate filtering panel with unique values from the table
       var nameOptions = [];
+      var typeOptions = []; // Add an array to store unique type values
       $("#data-table tbody tr").each(function () {
         var name = $(this).find("td:eq(0)").text();
+        var type = $(this).find("td:eq(2)").text(); // Get the type from the 3rd column
         if ($.inArray(name, nameOptions) == -1) nameOptions.push(name);
+        if ($.inArray(type, typeOptions) == -1) typeOptions.push(type); // Add type to the array
       });
       nameOptions.sort();
+      typeOptions.sort(); // Sort type options
       $.each(nameOptions, function (i, value) {
         $("#filter1").append(
           '<option value="' + value + '">' + value + "</option>"
         );
       });
+      $.each(typeOptions, function (i, value) {
+        $("#filter2").append(
+          '<option value="' + value + '">' + value + "</option>"
+        );
+      });
     }
   );
-});
 
+  // Attach event handler for filter2 change
+  $("#filter2").on("change", function () {
+    filterTable();
+  });
+});
 // Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end

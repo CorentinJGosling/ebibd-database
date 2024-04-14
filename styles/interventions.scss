@@ -307,14 +307,6 @@ section {
 // section 2=================================================================
 // section 2 =================================================================
 
-#intervention_material {
-  // background-color: #add6ed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 1rem;
-  margin-bottom: 3rem;
-}
 //  MODALS ===================================================================
 
 // #container {
@@ -333,7 +325,20 @@ body {
 }
 
 #intervention_material {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
   text-align: left;
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 2rem;
+    font-weight: 600;
+  }
   #data-table {
     margin-top: 1rem;
     border-collapse: collapse;
@@ -355,10 +360,10 @@ body {
       border: 1px solid #ddd; /* Add borders for better visibility */
       text-align: center;
     }
-    th:nth-child(3),
-    td:nth-child(3),
     th:nth-child(4),
-    td:nth-child(4) {
+    td:nth-child(4),
+    th:nth-child(5),
+    td:nth-child(5) {
       display: none;
     }
   }
